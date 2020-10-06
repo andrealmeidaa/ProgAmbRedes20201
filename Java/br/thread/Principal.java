@@ -13,8 +13,8 @@ public class Principal{
         
        /* try {
             thread01.join();
-        thread02.join();
-        thread03.join();
+            thread02.join();
+            thread03.join();
         } catch(Exception e) {
             e.printStackTrace();
         }*/
