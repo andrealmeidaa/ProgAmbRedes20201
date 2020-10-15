@@ -11,7 +11,7 @@ import java.net.Socket;
 public class ClienteThread extends Thread{
         private Socket cSocket;//Recebe a instância referente o socket cliente
         private int idCliente;//Id do cliente
-        ClienteThread(Socket cSocket,int idCliente){
+        public ClienteThread(Socket cSocket,int idCliente){
             this.cSocket=cSocket;
             this.idCliente=idCliente;
         }
