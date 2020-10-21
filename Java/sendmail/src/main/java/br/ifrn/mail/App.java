@@ -9,7 +9,7 @@ public class App
     public static void main( String[] args )
     {
         try {
-            Properties props=lerPropriedades("classes/conf.properties");
+            Properties props=lerPropriedades("conf.properties");
             String mensagem="<html> \n"+
             "<body>\n"+
                 "<p> Este é uma mensagem importante</p>\n"+
@@ -23,10 +23,12 @@ public class App
             sender.addTo("andregustavoo@gmail.com");//Adiciona dos destinatários
             sender.addTo("andre.almeida@escolar.ifrn.edu.br");
             sender.setFrom(props.getProperty("username"));//Remetente
-            sender.setSubject("Teste Mensagem Java");//Título
+            sender.setSubject("Teste Mensagem Java - V2");//Título
             sender.setHtmlMsg(mensagem);//Mensagem html
             sender.send();
+            System.out.println("Mensagem enviada com sucesso!");
         } catch(Exception e) {
+            e.printStackTrace();
         }
         
     }
@@ -37,7 +39,7 @@ public class App
           try {
             // fis = new FileInputStream(arquivo);
             //Realiza a leitura do arquivo dentro do jar
-             fis=App.class.getClassLoader().getResourceAsStream("conf.properties");
+             fis=App.class.getClassLoader().getResourceAsStream(arquivo);
              prop = new Properties();
              prop.load(fis);
           } catch(FileNotFoundException fnfe) {

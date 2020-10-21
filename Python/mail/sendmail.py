@@ -1,18 +1,23 @@
 import yagmail,configparser
 config = configparser.ConfigParser()
 config.read("conf")#Realizar leitura das configurações de acesso
-sender=yagmail.SMTP(config['Mail']['username'],config['Mail']['password'])
+sender=yagmail.SMTP(config['Mail']['username'],
+config['Mail']['password'])
 
-destinatario=['andregustavoo@gmail.com','andre.almeida@escolar.ifrn.edu.br']
-assunto='Teste de Mensagem'
+destinatario=['andregustavoo@gmail.com',
+'andre.almeida@escolar.ifrn.edu.br']
+assunto='Teste de Mensagem - Python'
 conteudo="""\
 <html>
     <body>
-        <p> Este é uma mensagem importante</p>
+        <p> Este é uma mensagem importante do Python</p>
         <p> Clique no <a href="http://www.google.com">Google</a></p>
     </body>
 </html>
 """
-sender.send(to=destinatario,subject=assunto,contents=conteudo)
+sender.send(to=destinatario,
+subject=assunto,
+contents=conteudo)
 
+print("Mensagem Enviada")
 
